@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Bundle Visualizer",
+    "description": "visualize the bundle in your webpage",
+    "homepage_url": "https://github.com/pajaydev/bundle-visualizer",
+    "version": "1.0.0",
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.ebay.com/*"
+            ],
+            "js": [
+                "src/script.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "declarativeContent"
+    ]
+}

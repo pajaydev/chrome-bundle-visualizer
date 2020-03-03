@@ -1,0 +1,10 @@
+{
+  "name": "ebay-bundle-check",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ajaykumar prathap",
+  "license": "MIT",
+  "dependencies": {
+    "rollup-plugin-uglify": "^6.0.4"
+  }
+}
