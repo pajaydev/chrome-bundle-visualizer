@@ -6625,7 +6625,7 @@
 
         let nonLassoJSON = results.reduce((sumJSON, eachContent) => {
             if (eachContent.indexOf("$_mod.def") === -1) {
-                let funcName = getFunctionName(eachContent);
+                let funcName = getScriptName(eachContent);
                 let stats = new Stats();
                 if (funcName) {
                     stats.setPackageName(funcName);
@@ -6649,6 +6649,23 @@
 
     function getScripts() {
         return window && window.localStorage && window.localStorage.getItem("total_scripts");
+    }
+
+    function getScriptName(content) {
+
+        let funcName = getFunctionName(content);
+        // can't able to predict the function name dynamically.
+        if (funcName && !(funcName === "function")) {
+            return funcName;
+        }
+        if (content.indexOf("getPlsUBTBrowser2") > -1) {
+            funcName = "pulsarjs";
+        } else if (content.indexOf("GHebayContent") > -1) {
+            funcName = "GlobalheaderJs";
+        } else {
+            funcName = "scripts";
+        }
+        return funcName;
     }
 
 })));

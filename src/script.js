@@ -1,13 +1,8 @@
-console.log("injecteddddd");
-
-var scriptArray = document.getElementsByTagName('script');
+const scriptArray = document.getElementsByTagName('script');
 scriptedArray = Array.from(scriptArray);
-var filteredArray = scriptedArray.filter((element) => element.src.indexOf('ebaystatic') > -1);
-var newscripts = filteredArray.map((script) => script.src);
-console.log("filtered Array");
-console.log(newscripts);
-
+const filteredArray = scriptedArray.filter((element) => (element.src.indexOf('ebaystatic') > -1) || (element.src.indexOf('securers.stratus.qa.ebay.com') > -1));
+const newscripts = filteredArray.map((script) => script.src);
+//localStorage.setItem("total_scripts", newscripts);
 chrome.runtime.sendMessage({
-    total_scripts: newscripts,
-    from: 'ajay' // or whatever you want to send
+    total_scripts: newscripts
 });
