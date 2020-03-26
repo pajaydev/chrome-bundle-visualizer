@@ -1,10 +1,24 @@
 {
-  "name": "ebay-bundle-check",
+  "name": "ebay-bundle-visualizer",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Ajaykumar prathap",
   "license": "MIT",
+  "description": "Chrome extension to visualize the ebay website",
   "dependencies": {
     "rollup-plugin-uglify": "^6.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pajaydev/bundle-visualizer.git"
+  },
+  "keywords": [
+    "ebay",
+    "bundle",
+    "extension",
+    "visualizer",
+    "analyzer",
+    "lasso",
+    "visualize",
+    "bundle"
+  ]
 }
