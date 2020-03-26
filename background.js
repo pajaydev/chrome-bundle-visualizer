@@ -16,6 +16,5 @@ chrome.webNavigation.onCompleted.addListener((event) => {
 
 // check valid ebay site.
 const isEbaySite = (event) => {
-    return event.url && ((event.url.indexOf("ebay") > -1) || (event.url.indexOf('stags.bluekai.com') > -1));
-
+    return event.url && ((event.url.indexOf("ebay") > -1) || (event.url.indexOf('stags.bluekai.com') > -1) || (event.url.indexOf('about:blank') > -1) || (event.url.indexOf('c.paypal.com') > -1));
 }

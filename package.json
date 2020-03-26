@@ -5,7 +5,13 @@
   "license": "MIT",
   "description": "Chrome extension to visualize the ebay website",
   "dependencies": {
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-uglify": "^6.0.4",
+    "uglify-es": "^3.3.9"
+  },
+  "scripts": {
+    "minify-popup": "uglifyjs src/popup.js -o dist/popup.min.js",
+    "minify-webtree": "uglifyjs src/webtreemap.js -o dist/webtreemap.min.js",
+    "minify": "npm run minify-popup && npm run minify-webtree"
   },
   "repository": {
     "type": "git",
