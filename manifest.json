@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "Bundle Visualizer",
+    "name": "Ebay Bundle Visualizer",
     "description": "visualize the bundle in your webpage",
     "homepage_url": "https://github.com/pajaydev/bundle-visualizer",
     "version": "1.0.0",
