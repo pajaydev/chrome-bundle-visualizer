@@ -137,17 +137,13 @@
             padding: 2px;
             text-align: center;
         }
-
-        /* Optional: styling on captions on mouse hover. */
-        /*.webtreemap-node:hover > .webtreemap-caption {
-  text-decoration: underline;
-}*/
     </style>
 </head>
 
 <body>
     <div id='map'>
-        <div class="empty-text">This plugin supports only on eBay sites. <a href="https://www.ebay.com">Click
+        <div class="empty-text">This plugin supports only on eBay sites. <a onclick='handleClick()'
+                href="https://www.ebay.com" target="_blank">Click
                 here</a></a></div>
     </div>
     <script src="dist/webtreemap.min.js"></script>

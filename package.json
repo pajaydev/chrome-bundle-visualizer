@@ -11,7 +11,7 @@
   "scripts": {
     "minify-popup": "uglifyjs src/popup.js -o dist/popup.min.js",
     "minify-webtree": "uglifyjs src/webtreemap.js -o dist/webtreemap.min.js",
-    "minify": "npm run minify-popup && npm run minify-webtree"
+    "compile": "npm run minify-popup && npm run minify-webtree"
   },
   "repository": {
     "type": "git",
