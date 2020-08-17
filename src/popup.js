@@ -6603,17 +6603,20 @@
     const _allScripts = getScripts();
     //console.log(_allScripts);
     if (!_allScripts) {
+        chrome.runtime.sendMessage({method: "updateLocalVariables"}, function(response) {
+            // nothing to do here
+        });
         console.log("**** Not a valid eBay site, kindly try in some ebay related pages *****");
         return;
     }
-    const _allScriptsArray = _allScripts.split(',');
+    const _allScriptsArray = _allScripts.split(',').filter((script)=> script.indexOf('secureinclude.ebaystatic.com/js/v/us/pulsar.js') === -1);
     //const scriptsArray = ["https://ir.ebaystatic.com/rs/c/makeebayfasterscript-src-scripts-logger-cbdc5549.js", "https://ir.ebaystatic.com/rs/c/inception-neSIqA16.js", "https://ir.ebaystatic.com/rs/c/highlnfe-ZvgR39sS.js", "https://ir.ebaystatic.com/rs/c/jquery-unA6K0OI.js", "https://ir.ebaystatic.com/rs/v/10341xh50yz21mhhydueu4m5wad.js", "https://ir.ebaystatic.com/rs/v/it02syay0qyozhdaszhv1jl4yyd.js", "https://ir.ebaystatic.com/rs/v/cjoombwsoy5j1pn2bnioxsokjm0.js", "https://ir.ebaystatic.com/rs/c/makeebayfasterscript-src-scripts-body-78a2168a.js"];
     const scriptsPromise = Promise.all(_allScriptsArray.map((script) => {
-        return fetch(script).then(function (response) {
-            return response.text();
-        }).then(function (data) {
-            return data; // this will be a string
-        });
+            return fetch(script).then(function (response) {
+                return response.text();
+            }).then(function (data) {
+                return data; // this will be a string
+            });
     }));
 
     // using async await function.
@@ -6667,5 +6670,9 @@
         }
         return funcName;
     }
+
+    window.addEventListener('blur', function() {
+        console.log("pop up is getting closed");
+      }, false);
 
 })));

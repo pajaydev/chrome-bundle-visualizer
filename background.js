@@ -1,18 +1,21 @@
+let ebayScripts = [];
 
+function updateLocalStorage(scripts){
+    localStorage.setItem("total_scripts", scripts);
+}
 // set the scripts in localStorage.
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-        localStorage.setItem("total_scripts", request.total_scripts);
+        if(request.total_scripts){
+            ebayScripts = request.total_scripts;
+            updateLocalStorage(ebayScripts);
+        }
+        if (request.method == "updateLocalVariables") {
+            updateLocalStorage(ebayScripts);
+        }
     }
 );
 
-// remove the scripts when the domContent loaded.
-chrome.webNavigation.onCompleted.addListener((event) => {
-    if (!isEbaySite(event)) {
-        localStorage.removeItem("total_scripts");
-    }
-
-});
 
 // check valid ebay site.
 const isEbaySite = (event) => {
